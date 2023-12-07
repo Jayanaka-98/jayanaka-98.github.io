@@ -125,13 +125,12 @@ tilemap = [
 ]
 ```
 
-This marked a pivotal moment in the experiment where an error in map generation surfaced. Notably, rows 3, 4, and 5 displayed only 19 tiles instead of the requisite 20. To confirm this anomaly, I requested another map generation without rectifying the initial problem.
+This marked a pivotal moment in the experiment where an error in map generation surfaced. Notably, rows 3, 4, and 5 displayed only 19 tiles instead of the reqrequested 20. To confirm this anomaly, I requested another map generation without rectifying the initial problem.
 
-#### Prompt 4 : 
-- Another
+### Prompt 4 : 
+    "Another"
 
-ChatGPT: 
-- Sure, here's another variation of the map layout:
+#### ChatGPT: 
 
 ```python
 tilemap = [
@@ -153,15 +152,12 @@ tilemap = [
 ]
 ```
 
+Surprisingly it did not reproduce the map size error. However, as this map is quite simple a harder map was requested.
 
+### Prompt 5 : 
+    Give me a harder map
 
-- Surprisingly it did not reproduce the error. 
-- However, as this map is quite simple I asked for a harder map.
-
-#### Prompt 5 : 
-- Give me a harder map
-
-ChatGPT: 
+#### ChatGPT: 
 - Creating a more challenging map involves adjusting the placement and density of walls, enemies, and the player. Here's a map with a more intricate layout:
 
 ```python
