@@ -285,7 +285,7 @@ Here also the same result was presented. From here onwards the prompts did not c
 
 While the experiment showcased the potential of language models in generating game maps, it highlighted limitations in reliably creating progressively challenging levels. Fine-tuning the model for this specific task might be necessary to consistently generate playable yet increasingly difficult game levels.
 
-## Key Observations ans Learnings
+## Key Observations and Learnings
 
   - **Model's Capability:** ChatGPT demonstrated an understanding of basic map structures and placements of game elements but struggled to create varied or more intricate maps.
 
