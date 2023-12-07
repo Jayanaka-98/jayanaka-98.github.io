@@ -1,4 +1,6 @@
 # **Exploring Game Level Map Generation with ChatGPT**
+###### Jayanaka L. Dantanarayana
+###### 7th December 2023 
 
 This experiment is on an intriguing experiment—utilizing conversational AI, specifically ChatGPT, to generate game level maps for a Python-based game developed using pygame. The objective was to assess whether an AI model could create simple yet playable game maps based on specific prompts.
 
@@ -25,7 +27,7 @@ The four edges of the map must be made up of walls and wall barries may be place
 
 The game map design and game mechanics are explained to the moedel.
 
-### Prompt 1 : 
+### Prompt 1: 
     "This is a map for a game"
 ```python
 "tilemap = [
@@ -74,7 +76,7 @@ tilemap = [
 
 ChatGPT successfully crafted a map of the specified dimensions, enclosing the area with walls along the perimeter. However, it didn't populate the interior with any enemies, players, or additional walls as it was not specified in the prompt.
 
-### Prompt 2 : 
+### Prompt 2: 
     "Give me a different map"
 
 #### ChatGPT: 
@@ -101,7 +103,7 @@ tilemap = [
 
 This time it managed to produce a playable map whithough it was quite simple. 
 
-### Prompt 3 : 
+### Prompt 3: 
     "Give me another one"
 
 #### ChatGPT: 
@@ -127,7 +129,7 @@ tilemap = [
 
 This marked a pivotal moment in the experiment where an error in map generation surfaced. Notably, rows 3, 4, and 5 displayed only 19 tiles instead of the reqrequested 20. To confirm this anomaly, I requested another map generation without rectifying the initial problem.
 
-### Prompt 4 : 
+### Prompt 4: 
     "Another"
 
 #### ChatGPT: 
@@ -154,11 +156,11 @@ tilemap = [
 
 Surprisingly it did not reproduce the map size error. However, as this map is quite simple a harder map was requested.
 
-### Prompt 5 : 
-    Give me a harder map
+### Prompt 5: 
+    "Give me a harder map"
 
 #### ChatGPT: 
-- Creating a more challenging map involves adjusting the placement and density of walls, enemies, and the player. Here's a map with a more intricate layout:
+    Creating a more challenging map involves adjusting the placement and density of walls, enemies, and the player. Here's a map with a more intricate layout:
 
 ```python
 tilemap = [
@@ -179,19 +181,16 @@ tilemap = [
     'BBBBBBBBBBBBBBBBBBBB'
 ]
 ```
+    This map introduces a more intricate maze-like structure with walls ('B'), enemies ('E') in challenging spots, and the player ('P') placed in a relatively open area. Adjustments like dead ends, narrow paths, and more obstacles make it trickier for the player to navigate without encountering enemies.
 
+**KABOOM!!!** It is a marvelous revelation that this LLM was able to grasp the concept of game level hardness of a level and generate a more challenging map without explaining it what to do.
 
+With this revelation a much harder map was requested.
 
-This map introduces a more intricate maze-like structure with walls ('B'), enemies ('E') in challenging spots, and the player ('P') placed in a relatively open area. Adjustments like dead ends, narrow paths, and more obstacles make it trickier for the player to navigate without encountering enemies.
+### Prompt 6: 
+    "Give me a harder map"
 
-- It is marvelous that this LLM was able to grasp the concept of hardness of a level and generate a more challenging map without explaining it what to do.
-- With this revelation I ased for a much harder map.
-
-#### Prompt 6: 
-- give me a harder map
-
-ChatGPT: 
-- Absolutely, here's a challenging map with a more complex layout:
+#### ChatGPT: 
 
 ```python
 tilemap = [
@@ -212,16 +211,15 @@ tilemap = [
     'BBBBBBBBBBBBBBBBBBBB'
 ]
 ```
-This map features a denser maze structure with more intricate paths, dead ends, and multiple enemies ('E') scattered throughout. The player ('P') is placed in a relatively enclosed area, making it challenging to navigate without encountering enemies or hitting dead ends.
 
-- The map was indeed harder, but the issue with the game michanics was revealed as the player character needs at least a 2 tile gap to pass through easily. Otherwise the hitbox of the player must alling with the empty space, accurate to the a pixel.
-- To avoid this issue, I asked ChatGPT to keep a 2 tile spacing for the player to move.
-- Here the map size error was also present.
+This map was indeed harder, but an issue with the game michanics was revealed as the player character needs at least a 2 tile gap to pass through easily. Otherwise the hitbox of the player must align with the empty space, accurate to the a pixel. Additionally the map size error was also present 
 
-#### Prompt 7: 
+To avoid this issue, ChatGPT was prompted to keep a 2 tile spacing for the player to move.
+
+### Prompt 7: 
 - There can only be 20 rows and 20 columns and there should be atleast two empty spaces for the player to move
 
-ChatGPT: 
+#### ChatGPT: 
 - Understood! Here's a challenging map within the constraints of 20 rows and 20 columns that ensures at least two empty spaces for the player to move:
 
 ```python
@@ -248,15 +246,14 @@ tilemap = [
 ]
 ```
 
-- Here the map did not change and the error was not corrected.
-- To ensure the gap, I asked the model to maintain 2 tile gap.
+Here the map did not change and the error was not corrected. To ensure the gap, the model was asked to maintaina a 2 tile gap.
 
 
-#### Prompt 8 : 
-- spaces should be in both columns and rows as consecutive pairs.
+### Prompt 8: 
+    "Spaces should be in both columns and rows as consecutive pairs."
 
-ChatGPT: 
-- Understood! Here's a revised map with at least two empty spaces arranged in consecutive pairs in both columns and rows:
+#### ChatGPT: 
+    Understood! Here's a revised map with at least two empty spaces arranged in consecutive pairs in both columns and rows:
 
 ```python
 tilemap = [
@@ -282,13 +279,21 @@ tilemap = [
 ]
 ```
 
+Here also the same result was presented. From here onwards the prompts did not change the map significantly or correct the mapsize error.
 
 
-This map layout maintains the maze structure with walls ('B'), enemies ('E'), and the player ('P'), ensuring that there are at least two consecutive empty spaces in both rows and columns for the player to navigate within the constraints of the grid size.
+## Conclusion
 
-- Here also the same result was presented.
-- From here onwards the propmts did not change the map significantly or correct the mapsize error.
+While the experiment showcased the potential of language models in generating game maps, it highlighted limitations in reliably creating progressively challenging levels. Fine-tuning the model for this specific task might be necessary to consistently generate playable yet increasingly difficult game levels.
 
-### Conclusion
+## Key Observations ans Learnings
 
-As observed through this experiment, LLMs are definitely capable for generating unique game level maps. Howevere, the model needs to be fine tuned for the task to reliably generate maps which are harder than the previous level but playable.
+  - **Model's Capability:** ChatGPT demonstrated an understanding of basic map structures and placements of game elements but struggled to create varied or more intricate maps.
+
+  - **Limitations:** The AI's ability to respond to prompts and iteratively generate increasingly complex or challenging maps was limited.
+
+  - **Fine-tuning Requirement:** To reliably create harder yet playable maps, further fine-tuning of the model specifically for game level map generation might be necessary.
+
+## Future Directions
+
+This experiment unveils the potential for AI-driven game map generation but underscores the need for refinement. Future efforts could focus on refining prompts or training models tailored to game level map creation, enhancing their ability to generate diverse and progressively challenging maps. Furthermore, integration the LLM directly with the game by internal propting and API calls would be pursued as well.
