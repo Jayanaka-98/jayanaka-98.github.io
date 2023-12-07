@@ -1,6 +1,5 @@
 # **Exploring Game Level Map Generation with ChatGPT**
-###### Jayanaka L. Dantanarayana
-###### 7th December 2023 
+###### Jayanaka L. Dantanarayana, 7th December 2023 
 
 This experiment is on an intriguing experiment—utilizing conversational AI, specifically ChatGPT, to generate game level maps for a Python-based game developed using pygame. The objective was to assess whether an AI model could create simple yet playable game maps based on specific prompts.
 
