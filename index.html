@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jayanaka Dantanarayana — AI-Integrated Programming</title>
+  <meta name="description" content="Jayanaka Dantanarayana is a PhD student in Computer Science and Engineering at the University of Michigan, building language abstractions, compilers, and runtimes for AI-Integrated programming. Creator of Sigil, the skill compiler.">
+  <meta property="og:title" content="Jayanaka Dantanarayana">
+  <meta property="og:description" content="Language abstractions, compilers, and runtimes for AI-Integrated programming. Creator of Sigil, the skill compiler.">
+  <meta property="og:url" content="https://jayanaka.dev">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="#top">Jayanaka Dantanarayana</a>
+    <nav class="site-nav">
+      <a href="#sigil">Sigil</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================ Hero ============================ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="kicker">AI-Integrated Programming · Languages · Runtimes</p>
+          <h1>Jayanaka Dantanarayana</h1>
+          <p class="lede">
+            I build programming languages, compilers, and runtimes that make AI-Integrated
+            software simpler to write and more reliable to run. I am a PhD student in Computer
+            Science and Engineering at the University of Michigan, working with the Jaseci
+            Research Lab, and the creator of <a href="https://sigilagent.com">Sigil</a>,
+            the skill compiler.
+          </p>
+          <div class="hero-links">
+            <a class="btn btn-primary" href="https://sigilagent.com">Sigil ↗</a>
+            <a class="btn" href="https://github.com/Jayanaka-98">GitHub</a>
+            <a class="btn" href="https://scholar.google.com/citations?user=JCJoV3wAAAAJ">Google Scholar</a>
+            <a class="btn" href="https://dblp.org/pid/361/3789.html">DBLP</a>
+            <a class="btn" href="https://www.linkedin.com/in/jayanaka-dantanarayana/">LinkedIn</a>
+          </div>
+        </div>
+        <img class="hero-photo" src="images/avatar.png" alt="Jayanaka Dantanarayana's avatar">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Sigil ============================ -->
+  <section id="sigil" class="alt">
+    <div class="container">
+      <h2 class="section-title">Latest work: Sigil</h2>
+      <div class="feature-card">
+        <div>
+          <h3>The skill compiler</h3>
+          <p class="feature-tagline">Don't prompt the skill. Compile it.</p>
+          <p>
+            Agent skills today are prose: a model reads a <code>SKILL.md</code>, re-derives its
+            control flow on every run, and may silently skip mandated steps. Sigil takes the
+            opposite approach. It compiles the Markdown skill into a typed agent harness, so
+            every step, rule, and check is enforced by program structure rather than hoped for
+            in a prompt.
+          </p>
+          <p>
+            Sigil lifts the skill into AG-IR, a typed agentic intermediate representation that
+            separates model-owned cognition from code-owned mechanism, audits it with a gate
+            battery, and mechanically lowers it to a runnable artifact. It is built in
+            <a href="https://www.jac-lang.org">Jac</a> on the
+            <a href="https://www.jaseci.org">Jaseci</a> stack, works with Claude Code without an
+            API key, supports 52 providers plus local models, and ejects a self-contained
+            single-file executable.
+          </p>
+          <div class="stats-row">
+            <div class="stat">
+              <div class="num">86%</div>
+              <div class="label">mandated steps executed, vs 56% as a prompt</div>
+            </div>
+            <div class="stat">
+              <div class="num">2.3&times;</div>
+              <div class="label">full-procedure completion</div>
+            </div>
+            <div class="stat">
+              <div class="num">0.58&times;</div>
+              <div class="label">tokens vs the prose baseline</div>
+            </div>
+          </div>
+          <p style="margin-top:1.25rem">
+            <a href="https://sigilagent.com">sigilagent.com</a> ·
+            <a href="https://github.com/sigilagent/sigil">GitHub</a> ·
+            <a href="https://sigilagent.com/reference/">Docs</a> ·
+            <a href="https://arxiv.org/abs/2607.27309">Paper</a>
+          </p>
+        </div>
+        <div class="terminal" role="img" aria-label="Terminal session showing Sigil compiling a skill">
+<pre style="margin:0"><span class="dim"># one command: the compiler and the whole agent</span>
+$ curl -fsSL https://github.com/sigilagent/sigil/releases/latest/download/install.sh | bash
+
+<span class="dim"># SKILL.md in, a typed agent harness out</span>
+$ sigil compile ./SKILL.md -e agent.jac
+<span class="accent">✓ LIFT</span>   SKILL.md → AG-IR
+<span class="accent">✓ GATE</span>   coverage · drift · structure
+<span class="accent">✓ LOWER</span>  AG-IR → agent.jac
+
+$ ./agent.jac "extract the tables from report.pdf"</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Research ============================ -->
+  <section id="research">
+    <div class="container">
+      <h2 class="section-title">Research</h2>
+      <p class="prose">
+        Software development is shifting from writing conventional code to composing programs
+        with LLMs inside them. My research asks what languages, compilers, and runtimes should
+        look like in that world, so that developers express intent once in code and systems
+        carry it the rest of the way.
+      </p>
+      <div class="card-grid" style="margin-top:1.5rem">
+        <div class="card">
+          <h3>Meaning-Typed Programming</h3>
+          <p>
+            MTP replaces prompt engineering with a single language-level abstraction: the
+            <code>by</code> operator invokes an LLM through the meaning already present in
+            code, backed by MT-IR at the compiler level and MT-Runtime at execution.
+            Published at OOPSLA 2025 and shipped as byLLM in the Jac language.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Semantic Engineering</h3>
+          <p>
+            Where code alone is not enough, SemTexts let developers attach lightweight
+            natural-language context directly to program constructs. Additional intent lives
+            in the program, not in handcrafted prompts.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Agent Skills as Programs</h3>
+          <p>
+            Sigil treats an agent skill as source code: prose procedures are lifted into
+            AG-IR, a typed agentic IR, and lowered into harnesses that enforce the procedure
+            by construction rather than by instruction.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Graphs for Retrieval and ML Systems</h3>
+          <p>
+            TOBUGraph and GraphRunner move retrieval beyond chunk-similarity RAG with
+            knowledge-graph structure, deployed in a production memory application.
+            GraphMend repairs graph breaks in PyTorch 2 through source-level code
+            transformation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Publications ============================ -->
+  <section id="publications" class="alt">
+    <div class="container">
+      <h2 class="section-title">Publications</h2>
+      <ul class="pub-list">
+        <li class="pub">
+          <p class="pub-title">SIGIL: Compiling Agent Skills into Typed Harnesses</p>
+          <p class="pub-authors"><strong>Jayanaka L. Dantanarayana</strong>, Savini Kashmira, Lingjia Tang, Jason Mars</p>
+          <p class="pub-venue"><span class="venue-name">arXiv preprint</span> · 2026</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2607.27309">arXiv</a>
+            <a href="https://sigilagent.com">Project</a>
+            <a href="https://github.com/sigilagent/sigil">Code</a>
+          </p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">Prompt Less, Smile More: MTP with Semantic Engineering in Lieu of Prompt Engineering</p>
+          <p class="pub-authors"><strong>Jayanaka L. Dantanarayana</strong> et al.</p>
+          <p class="pub-venue"><span class="venue-name">arXiv preprint</span> · 2025</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2511.19427">arXiv</a>
+          </p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">MTP: A Meaning-Typed Language Abstraction for AI-Integrated Programming</p>
+          <p class="pub-authors"><strong>Jayanaka L. Dantanarayana</strong>, Yiping Kang, Kugesan Sivasothynathan, Christopher Clarke, Baichuan Li, Savini Kashmira, Krisztián Flautner, Lingjia Tang, Jason Mars</p>
+          <p class="pub-venue"><span class="venue-name">OOPSLA 2025</span> · Proc. ACM Program. Lang. 9 (OOPSLA2)</p>
+          <p class="pub-links">
+            <a href="https://doi.org/10.1145/3763092">DOI</a>
+            <a href="https://arxiv.org/abs/2405.08965">arXiv</a>
+            <a href="https://github.com/Jayanaka-98/mtllm-oopsla2025">Artifact</a>
+          </p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">GraphMend: Code Transformations for Fixing Graph Breaks in PyTorch 2</p>
+          <p class="pub-authors">Savini Kashmira, <strong>Jayanaka L. Dantanarayana</strong>, Thamirawaran Sathiyalogeswaran, Krisztián Flautner, Lingjia Tang, Jason Mars</p>
+          <p class="pub-venue"><span class="venue-name">arXiv preprint</span> · 2025</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2509.16248">arXiv</a>
+          </p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">GraphRunner: A Multi-Stage Framework for Efficient and Accurate Graph-Based Retrieval</p>
+          <p class="pub-authors">Savini Kashmira, <strong>Jayanaka L. Dantanarayana</strong>, Krisztián Flautner, Lingjia Tang, Jason Mars</p>
+          <p class="pub-venue"><span class="venue-name">arXiv preprint</span> · 2025</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2507.08945">arXiv</a>
+          </p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">TOBUGraph: Knowledge Graph-Based Retrieval for Enhanced LLM Performance Beyond RAG</p>
+          <p class="pub-authors">Savini Kashmira, <strong>Jayanaka L. Dantanarayana</strong>, et al.</p>
+          <p class="pub-venue"><span class="venue-name">EMNLP 2025</span> · Industry Track</p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2412.05447">arXiv</a>
+          </p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">Scaling Down to Scale Up: A Cost-Benefit Analysis of Replacing OpenAI's LLM with Open Source SLMs in Production</p>
+          <p class="pub-authors">Chandra Irugalbandara, et al., incl. <strong>Jayanaka L. Dantanarayana</strong></p>
+          <p class="pub-venue"><span class="venue-name">IEEE ISPASS 2024</span></p>
+          <p class="pub-links">
+            <a href="https://arxiv.org/abs/2312.14972">arXiv</a>
+          </p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">Surface Texture Reproduction and Amplification for Haptic Perception</p>
+          <p class="pub-authors"><strong>Jayanaka L. Dantanarayana</strong>, et al.</p>
+          <p class="pub-venue"><span class="venue-name">IEEE IECON 2023</span></p>
+        </li>
+        <li class="pub">
+          <p class="pub-title">Haptic Based Surface Texture Classification Using Machine Learning Techniques</p>
+          <p class="pub-authors">Savini Kashmira, <strong>Jayanaka L. Dantanarayana</strong>, et al.</p>
+          <p class="pub-venue"><span class="venue-name">IEEE IES OnCon 2023</span></p>
+        </li>
+      </ul>
+      <p class="pub-note">
+        Full list on <a href="https://scholar.google.com/citations?user=JCJoV3wAAAAJ">Google Scholar</a>
+        and <a href="https://dblp.org/pid/361/3789.html">DBLP</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================ About ============================ -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About</h2>
+      <div class="prose">
+        <p>
+          I started in electrical engineering at the University of Moratuwa, Sri Lanka, where I
+          worked on haptics and surface-texture perception. That systems background carried me
+          to the University of Michigan, where I am advised by Jason Mars and Lingjia Tang in
+          the Jaseci Research Lab, working at the intersection of programming languages,
+          compilers, and AI systems.
+        </p>
+        <p>
+          My work ships in the open source Jac programming language and the Jaseci runtime
+          stack: MTP is available as the byLLM plugin, and Sigil is built end-to-end on the
+          same foundation. I presented MTP at SPLASH/OOPSLA 2025 in Perth, and I am
+          co-organizing the Jaseci tutorial on agentic AI at ASPLOS 2026.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="container">
+    <div>
+      © 2026 Jayanaka Dantanarayana ·
+      <a href="mailto:jayanaka15@gmail.com">jayanaka15@gmail.com</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://sigilagent.com">Sigil</a>
+      <a href="https://github.com/Jayanaka-98">GitHub</a>
+      <a href="https://scholar.google.com/citations?user=JCJoV3wAAAAJ">Scholar</a>
+      <a href="https://dblp.org/pid/361/3789.html">DBLP</a>
+      <a href="https://www.linkedin.com/in/jayanaka-dantanarayana/">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
